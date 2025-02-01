@@ -19,3 +19,72 @@ function operate(num1, operator, num2) {
             return divide(num1, num2);
     }
 }
+
+let calcContainer = document.querySelector(".calculator-container");
+let display = calcContainer.querySelector(".display");
+
+calcContainer.addEventListener("click", (e) => {
+    let target = e.target;
+
+    // remove default text
+    if (display.textContent == "Calculator") {
+        display.textContent = "";
+    }
+
+    switch (target.id) {
+        case 'clear':
+            display.textContent = ""
+            break;
+        case 'backspace':
+            display.textContent = display.textContent.slice(0,-1);
+            break;
+        case '9':
+            display.textContent += "9"
+            break;
+        case '8':;
+            display.textContent += "8"
+            break;
+        case '7':
+            display.textContent += "7"
+            break;
+        case 'divide':
+            display.textContent += "/"
+            break;
+        case '6':
+            display.textContent += "6"
+            break;
+        case '5':
+            display.textContent += "5"
+            break;
+        case '4':
+            display.textContent += "4"
+            break;   
+        case 'multiply':
+            display.textContent += "*"
+            break;  
+        case '3':
+            display.textContent += "3"
+            break;  
+        case '2':
+            display.textContent += "2"
+            break;  
+        case '1':
+            display.textContent += "1"
+            break; 
+        case 'subtract':
+            display.textContent += "-"
+            break;  
+        case '.':
+            display.textContent += "."
+            break;
+        case '0':
+            display.textContent += "0"
+            break; 
+        case 'equals':
+            // operate()
+            break; 
+        case 'add':
+            display.textContent += "+"
+            break; 
+    }
+});
