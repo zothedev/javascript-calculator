@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(60, 60, 60);
+    margin-top: 50px;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    border: 2px solid black;
+}
+
+.calculator-container {
+    border: 3px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(65, 235, 178);
+
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.display {
+    width: 150px;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.add-row {
+    padding-bottom: 20px;
+}
