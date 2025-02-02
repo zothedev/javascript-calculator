@@ -3,9 +3,9 @@ let subtract = ((a, b) => a - b);
 let multiply = ((a, b) => a * b);
 let divide = ((a, b) => a / b);
 
-let operand1;
+let num1;
 let operator;
-let operand2;
+let num2;
 
 function operate(num1, operator, num2) {
     switch (operator) {
@@ -26,15 +26,10 @@ let display = calcContainer.querySelector(".display");
 calcContainer.addEventListener("click", (e) => {
     let target = e.target;
 
-    // remove default text
-    if (display.textContent == "Calculator") {
-        display.textContent = "";
-    }
-
     switch (target.id) {
         case 'clear':
             display.textContent = ""
-            operand1, operator, operator2 = "";
+            num1, operator, num2 = "";
             break;
         case 'backspace':
             display.textContent = display.textContent.slice(0, -1);
@@ -82,30 +77,31 @@ calcContainer.addEventListener("click", (e) => {
             display.textContent += "0"
             break;
         case 'equals':
-            populateVars(display.textContent);
-            display.textContent = operate(operand1, operator, operand2);
+            assignNums(display.textContent);
+            display.textContent = operate(num1, operator, num2);
             break;
         case 'add':
-            display.textContent += "+"
+            display.textContent += "+";
+            operator = "+";
             break;
     }
+
+    
 });
 
-function populateVars(str) {
-    let operandIndex;
-    if (str.indexOf("/") > 0) {
-        operandIndex = str.indexOf("/");
-    } else if (str.indexOf("*") > 0) {
-        operandIndex = str.indexOf("*");
-    } else if (str.indexOf("+") > 0) {
-        operandIndex = str.indexOf("+");
-    } else {
-        operandIndex = str.indexOf("-");
+function assignNums(str) {
+    let operatorIndex = "";
+    let i = 0;
+    let ops = ["+", "-", "/", "*"];
+    while (!operatorIndex) {
+        if (str.indexOf(ops[i]) > -1) {
+            operatorIndex = str.indexOf(ops[i]);
+        }
+        i++;
     }
-    // console.log(str);
-    operand1 = +(str.slice(0, operandIndex));
-    operand2 = +(str.slice(operandIndex+1));
-    operator = str.slice(operandIndex,operandIndex+1);
-    // console.log(`${operand1} ${operator} ${operand2}`);
+    console.log(operatorIndex);
+    num1 = +(str.slice(0,operatorIndex));
+    num2 = +(str.slice(operatorIndex+1));
+    operator = str[operatorIndex];
+    // console.log(`${num1} ${operation}`)
 }
-
