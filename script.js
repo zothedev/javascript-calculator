@@ -1,7 +1,6 @@
 // todo:
-// - disable equals button if two operands are not present (num2 becomes 0 it seems)
-// - fix divide by 0 bug
 // - 
+// - clean up repetitive code using funcs
 
 let add = ((a, b) => a + b);
 let subtract = ((a, b) => a - b);
@@ -12,26 +11,25 @@ let num1 = "";
 let operator = "";
 let num2 = "";
 
-function operate(num1, operator, num2) {
-    if (!num1) {
-        console.log("first operator clicked");
-        return num2;
+function operate(n1, op, n2) {
+    if (!n1) {
+        return n2;
     }
 
 
-    switch (operator) {
+    switch (op) {
         case "+":
-            operator = "";
-            return add(+num1, +num2).toString();
+            op = "";
+            return add(+n1, +n2).toString();
         case "-":
-            operator = "";
-            return subtract(+num1, +num2);
+            op = "";
+            return subtract(+n1, +n2);
         case "*":
-            operator = "";
-            return multiply(+num1, +num2);
+            op = "";
+            return multiply(+n1, +n2);
         case "/":
-            operator = "";
-            return divide(+num1, +num2);
+            op = "";
+            return divide(+n1, +n2);
     }
 }
 
@@ -92,12 +90,17 @@ calcContainer.addEventListener("click", (e) => {
         //     display.textContent += "."
         //     break;
         case '0':
-            display.textContent += "0"
+            num2 += "0";
+            display.textContent = num1 + operator + num2;
             break;
         
         
         case 'add':
             if (!num2) {
+                if (operator) {
+                    operator = "+"
+                    display.textContent = num1 + operator + num2;
+                }
                 break;
             }
             operator = "+";
