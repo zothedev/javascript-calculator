@@ -3,6 +3,7 @@ let subtract = ((a, b) => a - b);
 let multiply = ((a, b) => a * b);
 let divide = ((a, b) => a / b);
 
+let ops = ["+", "-", "/", "*"];
 let num1;
 let operator;
 let num2;
@@ -44,6 +45,11 @@ calcContainer.addEventListener("click", (e) => {
             display.textContent += "7"
             break;
         case 'divide':
+            // if there is already an expression in display (if an operator is present in expression)
+            if (Number.isNaN(+(display.textContent))) {
+                assignNums(display.textContent);
+                display.textContent = operate(num1, operator, num2);
+            }
             display.textContent += "/"
             break;
         case '6':
@@ -56,6 +62,11 @@ calcContainer.addEventListener("click", (e) => {
             display.textContent += "4"
             break;
         case 'multiply':
+            // if there is already an expression in display (if an operator is present in expression)
+            if (Number.isNaN(+(display.textContent))) {
+                assignNums(display.textContent);
+                display.textContent = operate(num1, operator, num2);
+            }
             display.textContent += "*"
             break;
         case '3':
@@ -68,6 +79,11 @@ calcContainer.addEventListener("click", (e) => {
             display.textContent += "1"
             break;
         case 'subtract':
+            // if there is already an expression in display (if an operator is present in expression)
+            if (Number.isNaN(+(display.textContent))) {
+                assignNums(display.textContent);
+                display.textContent = operate(num1, operator, num2);
+            }
             display.textContent += "-"
             break;
         case '.':
@@ -81,25 +97,30 @@ calcContainer.addEventListener("click", (e) => {
             display.textContent = operate(num1, operator, num2);
             break;
         case 'add':
+            // if there is already an expression in display (if an operator is present in expression)
+            if (Number.isNaN(+(display.textContent))) {
+                assignNums(display.textContent);
+                display.textContent = operate(num1, operator, num2);
+            }
             display.textContent += "+";
-            operator = "+";
             break;
     }
-
-    
 });
 
 function assignNums(str) {
     let operatorIndex = "";
     let i = 0;
-    let ops = ["+", "-", "/", "*"];
-    while (!operatorIndex) {
-        if (str.indexOf(ops[i]) > -1) {
-            operatorIndex = str.indexOf(ops[i]);
-        }
-        i++;
+
+    if (str.indexOf("*") > -1) {
+        operatorIndex = str.indexOf("*");
+    } else if (str.indexOf("/") > -1) {
+        operatorIndex = str.indexOf("/");
+    } else if (str.indexOf("+") > -1) {
+        operatorIndex = str.indexOf("+");
+    } else if (str.indexOf("-") > -1) {
+        operatorIndex = str.indexOf("-");
     }
-    console.log(operatorIndex);
+    
     num1 = +(str.slice(0,operatorIndex));
     num2 = +(str.slice(operatorIndex+1));
     operator = str[operatorIndex];
