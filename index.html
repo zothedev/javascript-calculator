@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="calculator-container">
-        <p class="display"></p>
+        <div class="display-container">
+            <p class="display orbitron-font">0</p>
+        </div>
         <div class="top-row">
-            <button id="clear">Clear</button>
-            <button id="backspace">Delete</button>
+            <button class="orbitron-font" id="clear">AC</button>
+            <button class="orbitron-font" id="backspace">DEL</button>
         </div>
         <div class="divide-row">
-            <button id="9">9</button>
-            <button id="8">8</button>
-            <button id="7">7</button>
-            <button id="divide">/</button>
+            <button class="orbitron-font" id="9">9</button>
+            <button class="orbitron-font" id="8">8</button>
+            <button class="orbitron-font" id="7">7</button>
+            <button class="orbitron-font" id="divide">/</button>
         </div>
         <div class="multiply-row">
-            <button id="6">6</button>
-            <button id="5">5</button>
-            <button id="4">4</button>
-            <button id="multiply">*</button>
+            <button class="orbitron-font" id="6">6</button>
+            <button class="orbitron-font" id="5">5</button>
+            <button class="orbitron-font" id="4">4</button>
+            <button class="orbitron-font" id="multiply">*</button>
         </div>
         <div class="subtract-row">
-            <button id="3">3</button>
-            <button id="2">2</button>
-            <button id="1">1</button>
-            <button id="subtract">-</button>
+            <button class="orbitron-font" id="3">3</button>
+            <button class="orbitron-font" id="2">2</button>
+            <button class="orbitron-font" id="1">1</button>
+            <button class="orbitron-font" id="subtract">-</button>
         </div>
         <div class="add-row">
-            <button id="decimal">.</button>
-            <button id="0">0</button>
-            <button id="equals">=</button>
-            <button id="add">+</button>
+            <button class="orbitron-font" id="decimal">.</button>
+            <button class="orbitron-font" id="0">0</button>
+            <button class="orbitron-font" id="equals">=</button>
+            <button class="orbitron-font" id="add">+</button>
         </div>
     </div>
-    
+
 </body>
+
 </html>
