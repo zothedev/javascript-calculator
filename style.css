@@ -1,30 +1,30 @@
 body {
     display: flex;
-    justify-content: center;
     background-color: rgb(151, 151, 151);
-    margin-top: 50px;
 }
 
 button {
     width: 80px;
     height: 80px;
     font-size: 40px;
-    border: 2px solid black;
+    border: 2px solid aliceblue;
+    border-radius: 50%;
+    background-color: rgb(119, 180, 58);
+    color: aliceblue;
 }
 
 .calculator-container {
-    border: 3px black solid;
+    border: 3px solid aliceblue;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    background-color: rgb(65, 235, 178);
-
+    margin: 0 auto;
+    background-color: rgb(19, 110, 228);
 }
 
 .top-row {
     display: flex;
-    align-items: center;
     padding: 10px 20px;
     gap: 10px;
 }
@@ -33,14 +33,54 @@ button {
     width: 150px;
 }
 
-.display {
-    width: 200px;
-    text-align: center;
-    padding: 0 10px;
+.display-container {
     font-size: 40px;
     font-weight: 800;
+
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+
+    /* scrollbar  */
+
+    overflow-y: auto;
+    white-space: nowrap;
+
+    max-width: 320px;
+    height: 100px;
+
+    color: aliceblue;
 }
 
 .add-row {
     padding-bottom: 20px;
+}
+
+button#add,
+button#multiply,
+button#divide,
+button#subtract {
+    background-color: rgb(222, 155, 46);
+}
+
+
+.orbitron-font {
+    font-family: "Orbitron", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.roboto-font {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+#clear, #backspace {
+    background-color: rgb(255, 112, 112);
+    border-radius: 20%;
 }
